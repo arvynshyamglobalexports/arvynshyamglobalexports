@@ -18,65 +18,102 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--cream);
             color: var(--text-light);
-            line-height: 1.2;
+            line-height: 1.6;
         }
+        /* Compact Header with Logo */
         header {
             background-color: var(--deep-green);
             color: white;
             text-align: center;
-            padding: 5rem 1.5rem;
-            border-bottom: 3px solid var(--gold);
+            padding: 1.5rem 1rem;
+            border-bottom: 2px solid var(--gold);
         }
         .logo-img {
-            max-width: 280px;
+            max-width: 160px;
+            width: 100%;
             height: auto;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
         }
-        header p {
+
+        /* Hero Image Slider Section */
+        .slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid #333;
+            background: #000;
+        }
+        .slide {
+            display: none;
+            position: relative;
+            text-align: center;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            display: block;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             color: var(--gold);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 500;
-            margin-top: 1rem;
+            padding: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
         }
+
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 4rem 1.5rem;
+            padding: 2rem 1.5rem;
         }
+
+        /* About Section */
         .about {
             background: var(--card-bg);
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             text-align: center;
             border: 1px solid #333;
         }
         .about h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
         .about p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #ccc;
             max-width: 800px;
             margin: auto;
         }
+
         .section-title {
             font-family: 'Playfair Display', serif;
             text-align: center;
             color: var(--gold);
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
         }
+
+        /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         .product-card {
@@ -97,42 +134,70 @@
         .product-card h3 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
         }
         .product-card p {
             color: #aaa;
             font-size: 0.95rem;
         }
-        .contact {
+
+        /* Inquiry & Lead Generation Form Section */
+        .inquiry-section {
             background: var(--card-bg);
-            color: var(--text-light);
-            padding: 4rem 2rem;
+            border: 1px solid var(--gold);
             border-radius: 12px;
+            padding: 3rem 2rem;
+            max-width: 700px;
+            margin: 4rem auto 2rem auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             text-align: center;
-            margin-top: 4rem;
-            border: 1px solid #333;
         }
-        .contact h2 {
+        .inquiry-section h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
-        .contact p {
+        .inquiry-section p {
             color: #ccc;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
         .address-box {
             background: #111;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
             display: inline-block;
-            margin: 1rem 0 2rem 0;
+            margin-bottom: 1.5rem;
             color: var(--gold);
             border: 1px dashed var(--gold);
             font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: #121212;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            border-color: var(--gold);
+            outline: none;
         }
         .btn {
             display: inline-block;
@@ -143,28 +208,50 @@
             font-weight: 600;
             text-decoration: none;
             letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.05rem;
+            margin-top: 1rem;
             transition: background 0.3s;
         }
         .btn:hover {
             background: #e6c57d;
         }
+
         footer {
             background: #050d0a;
             color: #888;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            margin-top: 4rem;
+            padding: 1.8rem;
+            font-size: 0.85rem;
+            margin-top: 3rem;
             border-top: 1px solid #222;
         }
     </style>
 </head>
 <body>
 
+    <!-- Compact Header -->
     <header>
         <img src="logo.png" alt="Arvyn Shyam Global Exports Logo" class="logo-img">
-        <p>Rooted in India • Reaching the World</p>
     </header>
+
+    <!-- Auto Image Slider -->
+    <div class="slider-container">
+        <div class="slide active">
+            <img src="slide1.png" alt="Luxury Master Collection">
+            <div class="slide-caption">Exquisite Craftsmanship • Rooted in India</div>
+        </div>
+        <div class="slide">
+            <img src="slide2.png" alt="Handcrafted Masterpieces">
+            <div class="slide-caption">Timeless Artifacts for Global Interiors</div>
+        </div>
+        <div class="slide">
+            <img src="slide3.png" alt="Brass & Wood Decor">
+            <div class="slide-caption">Elegance & Heritage Redefined</div>
+        </div>
+    </div>
 
     <div class="container">
         <section class="about">
@@ -206,21 +293,60 @@
             </div>
         </div>
 
-        <section class="contact">
+        <!-- Inquiry & Lead Capture Form (Direct Email Integration via FormSubmit) -->
+        <section class="inquiry-section">
             <h2>Global Partnerships & Inquiries</h2>
             <p>Are you an interior designer, boutique curator, or wholesale buyer looking for authentic Indian craftsmanship?</p>
             <div class="address-box">
                 📍 Registered Office: Tajganj, Agra, Uttar Pradesh - 282001, India
             </div>
-            <br>
-            <a href="mailto:arvynshyamglobalexports@gmail.com" class="btn">Connect With Us</a>
+
+            <!-- Form configured to send leads straight to your email -->
+            <form action="https://formsubmit.co/contact@arvynshyamglobalexports.com" method="POST">
+                <input type="hidden" name="_subject" value="New B2B Inquiry from Arvyn Shyam Global Website!">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label for="name">Your Name / Company</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name or company name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number / WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number with country code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Requirement / Message</label>
+                    <textarea id="message" name="message" rows="3" class="form-control" placeholder="Tell us about your requirements (Brass, Wood, Stone, etc.)"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Inquiry</button>
+            </form>
         </section>
     </div>
 
     <footer>
         <p>&copy; 2026 Arvyn Shyam Global Exports. All Rights Reserved.</p>
-    </footer>
+    ></footer>
 
+    <!-- JavaScript for Auto Image Slider -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 3500); // Changes slide every 3.5 seconds
+    </script>
 </body>
 </html>
- 

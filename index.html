@@ -387,6 +387,7 @@
             <li><a href="#" onclick="openModal('supportModal'); toggleSidebar();">📞 Support & Help</a></li>
             <li><a href="#" onclick="openModal('contactModal'); toggleSidebar();">✉️ Contact Us (Inquiry)</a></li>
             <li><a href="#collections" onclick="toggleSidebar();">🏛️ Master Collections</a></li>
+            <li><a href="#" onclick="openModal('aboutVideoModal'); toggleSidebar();">🎥 About Us (Our Story)</a></li>
         </ul>
     </div>
 
@@ -507,6 +508,22 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         </div>
     </div>
 
+    <!-- About Us Video Modal Pop-up -->
+    <div class="modal" id="aboutVideoModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <button class="close-modal" onclick="closeModal('aboutVideoModal'); stopVideo();">✕</button>
+            <h2>The Story of Arvyn Shyam</h2>
+            <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #aaa;">Discover how we bring authentic Indian craftsmanship to the world stage.</p>
+            
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #444; background: #000;">
+                <video id="aboutVideo" controls width="100%" style="display: block;">
+                    <source src="about-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 Arvyn Shyam Global Exports. All Rights Reserved.</p>
     </footer>
@@ -532,6 +549,14 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
+        }
+
+        function stopVideo() {
+            const video = document.getElementById('aboutVideo');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
         }
 
         function toggleDetails(card) {

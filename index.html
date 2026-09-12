@@ -14,27 +14,70 @@
             --text-light: #e0e0e0;
             --card-bg: #1a1a1a;
         }
-        #preloader {
+      /* --- Royal Theatre Curtain Preloader --- */
+#preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     pointer-events: none;
 }
+
+/* बायां और दायां पर्दा - गोल्डन और ग्रीन शेड के साथ */
 .curtain-left, .curtain-right {
     position: absolute;
     top: 0;
     width: 50%;
     height: 100%;
-    background-color: #0a1b15;
-    transition: transform 1.5s ease-in-out;
+    background: linear-gradient(135deg, #0a1b15 0%, #050d0a 100%);
+    border-right: 2px solid #dfb15b; /* गोल्डन बॉर्डर जो पर्दे को अलग दिखाएगा */
+    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2;
 }
-.curtain-left { left: 0; }
-.curtain-right { right: 0; }
-#preloader.loaded .curtain-left { transform: translateX(-100%); }
-#preloader.loaded .curtain-right { transform: translateX(100%); }
+
+.curtain-right {
+    right: 0;
+    border-right: none;
+    border-left: 2px solid #dfb15b;
+}
+
+/* पर्दा खुलने का एनिमेशन */
+#preloader.loaded .curtain-left {
+    transform: translateX(-100%);
+}
+#preloader.loaded .curtain-right {
+    transform: translateX(100%);
+}
+
+/* पर्दे के बीच में चमकता हुआ लोगो */
+.preloader-logo-box {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.preloader-logo-box img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(223, 177, 91, 0.6)); /* गोल्डन चमक */
+    animation: pulseLogo 1.5s infinite alternate;
+}
+
+#preloader.loaded .preloader-logo-box {
+    opacity: 0;
+}
+
+@keyframes pulseLogo {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
@@ -500,13 +543,11 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         }
         setInterval(showNextSlide, 3000);
     </script>
-    <script>
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        setTimeout(function() {
-            preloader.classList.add('loaded');
-        }, 500); // आधे सेकंड बाद पर्दा खुलना शुरू होगा
-    });
-</script>
-</body>
+   <div id="preloader">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+    <div class="preloader-logo-box">
+        <img src="logo.png" alt="Arvyn Shyam Global Exports Logo">
+    </div>
+</div></body>
 </html>

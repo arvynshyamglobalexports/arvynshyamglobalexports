@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <title>Arvyn Shyam Global Exports | Luxury Indian Handicrafts</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -14,73 +14,75 @@
             --text-light: #e0e0e0;
             --card-bg: #1a1a1a;
         }
-    /* --- Fixed Royal Theatre Curtain Preloader --- */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    pointer-events: none;
-    
-/* बायां और दायां पर्दा */
-.curtain-left, .curtain-right {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, #0a1b15 0%, #050d0a 100%);
-    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 2;
-}
 
-.curtain-left {
-    left: 0;
-    border-right: 2px solid #dfb15b; /* बाएं पर्दे के साथ गोल्डन किनारी */
-}
+        /* --- Fixed Royal Theatre Curtain Preloader --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
-.curtain-right {
-    right: 0;
-    border-left: 2px solid #dfb15b; /* दाएं पर्दे के साथ गोल्डन किनारी */
-}
+        /* बायां और दायां पर्दा */
+        .curtain-left, .curtain-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a1b15 0%, #050d0a 100%);
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 2;
+        }
 
-/* पर्दा खुलने का एनिमेशन - दोनों तरफ सही से बाहर जाएंगे */
-#preloader.loaded .curtain-left {
-    transform: translateX(-100%);
-}
-#preloader.loaded .curtain-right {
-    transform: translateX(100%);
-}
+        .curtain-left {
+            left: 0;
+            border-right: 2px solid #dfb15b;
+        }
 
-/* पर्दे के बीच में चमकता हुआ लोगो */
-.preloader-logo-box {
-    position: absolute;
-    z-index: 3;
-    text-align: center;
-    transition: opacity 0.5s ease-in-out;
-}
+        .curtain-right {
+            right: 0;
+            border-left: 2px solid #dfb15b;
+        }
 
-.preloader-logo-box img {
-    width: 120px;
-    height: auto;
-    filter: drop-shadow(0 0 15px rgba(223, 177, 91, 0.6));
-    animation: pulseLogo 1.5s infinite alternate;
-}
+        /* पर्दा खुलने का एनिमेशन */
+        #preloader.loaded .curtain-left {
+            transform: translateX(-100%);
+        }
+        #preloader.loaded .curtain-right {
+            transform: translateX(100%);
+        }
 
-#preloader.loaded .preloader-logo-box {
-    opacity: 0;
-}
+        /* पर्दे के बीच में चमकता हुआ लोगो */
+        .preloader-logo-box {
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-@keyframes pulseLogo {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
-}
-}
+        .preloader-logo-box img {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(223, 177, 91, 0.6));
+            animation: pulseLogo 1.5s infinite alternate;
+        }
+
+        #preloader.loaded .preloader-logo-box {
+            opacity: 0;
+        }
+
+        @keyframes pulseLogo {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
@@ -88,6 +90,7 @@
             color: var(--text-light);
             line-height: 1.6;
         }
+
         /* Top Navigation Bar with Hamburger Menu */
         nav {
             background-color: var(--deep-green);
@@ -368,10 +371,6 @@
     </style>
 </head>
 <body>
-<div id="preloader">
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
-</div>
     <!-- Top Sticky Bar with Logo & Hamburger Menu -->
     <nav>
         <div class="nav-logo">
@@ -512,7 +511,16 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         <p>&copy; 2026 Arvyn Shyam Global Exports. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Menu, Slider & Interactions -->
+    <!-- Royal Theatre Preloader -->
+    <div id="preloader">
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+        <div class="preloader-logo-box">
+            <img src="logo.png" alt="Arvyn Shyam Global Exports Logo">
+        </div>
+    </div>
+
+    <!-- JavaScript for Menu, Slider & Preloader -->
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
@@ -545,20 +553,14 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
             slides[currentSlide].classList.add('active');
         }
         setInterval(showNextSlide, 3000);
+
+        // Preloader Auto-Open Script
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('loaded');
+            }
+        }, 1200);
     </script>
-   <div id="preloader">
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
-    <div class="preloader-logo-box">
-        <img src="logo.png" alt="Arvyn Shyam Global Exports Logo">
-    </div>
-    <script>
-    // यह बिना किसी लोड के सीधे 1.5 सेकंड बाद पर्दा खोल देगा
-    setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.classList.add('loaded');
-        }
-    }, 1500);
-</div></body>
+</body>
 </html>

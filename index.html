@@ -234,7 +234,7 @@
             margin: auto;
         }
 
-        /* --- New: Trust & Credibility Badges --- */
+        /* Trust & Credibility Badges */
         .trust-badges {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -309,7 +309,7 @@
             font-size: 0.9rem;
         }
 
-        /* --- New: FAQ Section --- */
+        /* FAQ Section */
         .faq-section {
             margin-top: 4rem;
         }
@@ -337,7 +337,7 @@
             display: none;
         }
 
-        /* --- New: Shipping Partners Section --- */
+        /* Shipping Partners (Clickable) */
         .logistics-section {
             text-align: center;
             margin-top: 4rem;
@@ -349,7 +349,7 @@
         .logistics-logos {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             margin-top: 1.5rem;
         }
@@ -361,9 +361,16 @@
             color: var(--gold);
             font-weight: 600;
             letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .logistics-badge:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
         }
 
-        /* --- New: Floating WhatsApp Chat Button --- */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -604,15 +611,15 @@
             </div>
         </div>
 
-        <!-- Shipping & Logistics Partners -->
+        <!-- Shipping & Logistics Partners (Clickable) -->
         <div class="logistics-section">
             <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Trusted Global Logistics & Transit</h2>
             <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless door-to-door or port delivery worldwide.</p>
             <div class="logistics-logos">
-                <div class="logistics-badge">DHL Express</div>
-                <div class="logistics-badge">FedEx Global</div>
-                <div class="logistics-badge">UPS Freight</div>
-                <div class="logistics-badge">Air / Sea Cargo</div>
+                <a href="https://www.dhl.com" target="_blank" class="logistics-badge">DHL Express ↗</a>
+                <a href="https://www.fedex.com" target="_blank" class="logistics-badge">FedEx Global ↗</a>
+                <a href="https://www.ups.com" target="_blank" class="logistics-badge">UPS Freight ↗</a>
+                <a href="https://www.marinetraffic.com" target="_blank" class="logistics-badge">Air / Sea Cargo ↗</a>
             </div>
         </div>
     </div>

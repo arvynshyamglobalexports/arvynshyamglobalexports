@@ -30,7 +30,6 @@
             pointer-events: none;
         }
 
-        /* बायां और दायां पर्दा */
         .curtain-left, .curtain-right {
             position: absolute;
             top: 0;
@@ -51,7 +50,6 @@
             border-left: 2px solid #dfb15b;
         }
 
-        /* पर्दा खुलने का एनिमेशन */
         #preloader.loaded .curtain-left {
             transform: translateX(-100%);
         }
@@ -59,7 +57,6 @@
             transform: translateX(100%);
         }
 
-        /* पर्दे के बीच में चमकता हुआ लोगो */
         .preloader-logo-box {
             position: absolute;
             z-index: 3;
@@ -91,7 +88,7 @@
             line-height: 1.6;
         }
 
-        /* Top Navigation Bar with Hamburger Menu */
+        /* Top Navigation Bar */
         nav {
             background-color: var(--deep-green);
             display: flex;
@@ -171,7 +168,7 @@
             color: var(--gold);
         }
 
-        /* Hero 6-Image Slider */
+        /* Hero Slider */
         .slider-container {
             position: relative;
             max-width: 1200px;
@@ -237,6 +234,32 @@
             margin: auto;
         }
 
+        /* --- New: Trust & Credibility Badges --- */
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .badge-box {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-top: 3px solid var(--gold);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .badge-box h4 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge-box p {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
         .section-title {
             font-family: 'Playfair Display', serif;
             text-align: center;
@@ -245,7 +268,7 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Interactive Master Collections Cards */
+        /* Product Grid */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -286,13 +309,91 @@
             font-size: 0.9rem;
         }
 
-        /* Modal Popups for Support & Contact */
+        /* --- New: FAQ Section --- */
+        .faq-section {
+            margin-top: 4rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        /* --- New: Shipping Partners Section --- */
+        .logistics-section {
+            text-align: center;
+            margin-top: 4rem;
+            background: #0a1b15;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+        }
+        .logistics-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .logistics-badge {
+            background: var(--card-bg);
+            border: 1px solid #444;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- New: Floating WhatsApp Chat Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 4000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8);
-            z-index: 3000;
+            z-index: 5000;
             justify-content: center;
             align-items: center;
             padding: 1rem;
@@ -326,7 +427,6 @@
             font-size: 1rem;
         }
 
-        /* Form Controls */
         .form-group {
             margin-bottom: 1rem;
             text-align: left;
@@ -371,7 +471,7 @@
     </style>
 </head>
 <body>
-    <!-- Top Sticky Bar with Logo & Hamburger Menu -->
+    <!-- Top Sticky Bar -->
     <nav>
         <div class="nav-logo">
             <img src="logo.png" alt="Logo" class="logo-img">
@@ -388,10 +488,11 @@
             <li><a href="#" onclick="openModal('contactModal'); toggleSidebar();">✉️ Contact Us (Inquiry)</a></li>
             <li><a href="#collections" onclick="toggleSidebar();">🏛️ Master Collections</a></li>
             <li><a href="#" onclick="openModal('aboutVideoModal'); toggleSidebar();">🎥 About Us (Our Story)</a></li>
+            <li><a href="#faq" onclick="toggleSidebar();">❓ Export FAQ</a></li>
         </ul>
     </div>
 
-    <!-- 6-Image Auto & Manual Slider -->
+    <!-- 6-Image Slider -->
     <div class="slider-container">
         <div class="slide active"><img src="slide1.png" alt="Slide 1"><div class="slide-caption">Exquisite Blue Pottery & Decor</div></div>
         <div class="slide"><img src="slide2.png" alt="Slide 2"><div class="slide-caption">Handcrafted Wooden Masterpieces</div></div>
@@ -406,6 +507,22 @@
             <h2>The Essence of Indian Heritage</h2>
             <p><strong>Arvyn Shyam Global Exports</strong> connects timeless Indian craftsmanship with global markets. We curate luxury decor, brass, woodworks, and stone artifacts for international B2B buyers.</p>
         </section>
+
+        <!-- Trust & Credibility Badges -->
+        <div class="trust-badges">
+            <div class="badge-box">
+                <h4>100% Export Quality</h4>
+                <p>Stringent quality checks and export-grade finishing for global standards.</p>
+            </div>
+            <div class="badge-box">
+                <h4>Direct Artisan Sourcing</h4>
+                <p>Authentic handicraft masterpieces sourced straight from heritage clusters in India.</p>
+            </div>
+            <div class="badge-box">
+                <h4>Secure Global Transit</h4>
+                <p>Fumigated wood packing & robust transit protection for safe delivery.</p>
+            </div>
+        </div>
 
         <h2 class="section-title" id="collections">Our Master Collections</h2>
         <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view detailed specifications.</p>
@@ -461,9 +578,51 @@
                 </div>
             </div>
         </div>
+
+        <!-- Export FAQ Section -->
+        <div class="faq-section" id="faq">
+            <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What is your Minimum Order Quantity (MOQ)? <span>+</span></div>
+                <div class="faq-answer">We cater primarily to B2B buyers, boutique owners, and wholesalers. Our MOQ varies by product category, but we offer flexible initial quantities to support new global partners.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How do you ensure safe international shipping for fragile items? <span>+</span></div>
+                <div class="faq-answer">All fragile items (marble, brass, pottery) undergo multi-layer bubble wrapping, thermocol padding, and custom export-grade corrugated boxes or fumigated wooden crates to guarantee damage-free transit.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What are your accepted payment terms for global orders? <span>+</span></div>
+                <div class="faq-answer">We accept secure international bank wire transfers (TT) and verified business payment channels as per global export norms.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Do you provide custom branding or private labeling? <span>+</span></div>
+                <div class="faq-answer">Yes, we offer custom packaging, private labeling, and bespoke handicraft manufacturing as per your brand specifications upon bulk order confirmation.</div>
+            </div>
+        </div>
+
+        <!-- Shipping & Logistics Partners -->
+        <div class="logistics-section">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Trusted Global Logistics & Transit</h2>
+            <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless door-to-door or port delivery worldwide.</p>
+            <div class="logistics-logos">
+                <div class="logistics-badge">DHL Express</div>
+                <div class="logistics-badge">FedEx Global</div>
+                <div class="logistics-badge">UPS Freight</div>
+                <div class="logistics-badge">Air / Sea Cargo</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Support Modal Pop-up -->
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918279554811?text=Hello%20Arvyn%20Shyam%20Global%20Exports,%20I%20am%20interested%20in%20your%20handicraft%20collections." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- Support Modal -->
     <div class="modal" id="supportModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal('supportModal')">✕</button>
@@ -476,7 +635,7 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         </div>
     </div>
 
-    <!-- Contact Us Modal Pop-up (Lead Form) -->
+    <!-- Contact Us Modal -->
     <div class="modal" id="contactModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal('contactModal')">✕</button>
@@ -508,7 +667,7 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         </div>
     </div>
 
-    <!-- About Us Video Modal Pop-up -->
+    <!-- About Us Video Modal -->
     <div class="modal" id="aboutVideoModal">
         <div class="modal-content" style="max-width: 700px;">
             <button class="close-modal" onclick="closeModal('aboutVideoModal'); stopVideo();">✕</button>
@@ -537,7 +696,7 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         </div>
     </div>
 
-    <!-- JavaScript for Menu, Slider & Preloader -->
+    <!-- JavaScript for Interactions -->
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
@@ -568,7 +727,20 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
             }
         }
 
-        // 6-Image Slider Script
+        // FAQ Toggle Function
+        function toggleFaq(question) {
+            const answer = question.nextElementSibling;
+            const span = question.querySelector('span');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                span.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                span.textContent = '-';
+            }
+        }
+
+        // Slider Script
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -579,7 +751,7 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         }
         setInterval(showNextSlide, 3000);
 
-        // Preloader Auto-Open Script
+        // Preloader Script
         setTimeout(function() {
             const preloader = document.getElementById('preloader');
             if (preloader) {

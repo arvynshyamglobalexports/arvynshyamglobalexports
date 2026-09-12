@@ -20,22 +20,87 @@
             color: var(--text-light);
             line-height: 1.6;
         }
-        /* Compact Header with Logo */
-        header {
+        /* Top Navigation Bar with Hamburger Menu */
+        nav {
             background-color: var(--deep-green);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
             border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         .logo-img {
-            max-width: 160px;
-            width: 100%;
+            max-width: 130px;
             height: auto;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+        }
+        .tagline {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Sidebar Menu */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #111;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+            transition: right 0.4s ease;
+            z-index: 2000;
+            padding: 2.5rem 1.5rem;
+            border-left: 1px solid var(--gold);
+        }
+        .sidebar.active {
+            right: 0;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 2rem;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin-top: 3rem;
+        }
+        .sidebar ul li {
+            margin: 1.5rem 0;
+        }
+        .sidebar ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s;
+        }
+        .sidebar ul li a:hover {
+            color: var(--gold);
         }
 
-        /* Hero Image Slider Section */
+        /* Hero 6-Image Slider */
         .slider-container {
             position: relative;
             max-width: 1200px;
@@ -56,7 +121,7 @@
         }
         .slide img {
             width: 100%;
-            max-height: 550px;
+            max-height: 520px;
             object-fit: cover;
             display: block;
         }
@@ -69,7 +134,7 @@
             color: var(--gold);
             padding: 1.5rem;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: 1px;
         }
 
@@ -79,7 +144,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* About Section */
         .about {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -110,7 +174,7 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Product Grid */
+        /* Interactive Master Collections Cards */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -121,12 +185,13 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
             border-top: 4px solid var(--gold);
             border: 1px solid #333;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
         .product-content {
             padding: 2rem;
@@ -141,82 +206,86 @@
             color: #aaa;
             font-size: 0.95rem;
         }
+        .extra-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #444;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
 
-        /* Inquiry & Lead Generation Form Section */
-        .inquiry-section {
+        /* Modal Popups for Support & Contact */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .modal-content {
             background: var(--card-bg);
             border: 1px solid var(--gold);
             border-radius: 12px;
-            padding: 3rem 2rem;
-            max-width: 700px;
-            margin: 4rem auto 2rem auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
             text-align: center;
         }
-        .inquiry-section h2 {
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: none; border: none;
+            color: var(--gold); font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .modal-content h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-        .inquiry-section p {
+        .modal-content p {
             color: #ccc;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             font-size: 1rem;
         }
-        .address-box {
-            background: #111;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
-            border: 1px dashed var(--gold);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
+
+        /* Form Controls */
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             text-align: left;
         }
         .form-group label {
             display: block;
             color: var(--gold);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 0.3rem;
-            font-weight: 500;
         }
         .form-control {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 0.7rem 1rem;
             background: #121212;
             border: 1px solid #444;
             border-radius: 6px;
             color: #fff;
-            font-size: 1rem;
-        }
-        .form-control:focus {
-            border-color: var(--gold);
-            outline: none;
+            font-size: 0.95rem;
         }
         .btn {
             display: inline-block;
             background: var(--gold);
             color: #000;
-            padding: 0.9rem 2.5rem;
+            padding: 0.8rem 2rem;
             border-radius: 30px;
             font-weight: 600;
-            text-decoration: none;
-            letter-spacing: 1px;
             border: none;
             cursor: pointer;
             width: 100%;
-            font-size: 1.05rem;
             margin-top: 1rem;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background: #e6c57d;
         }
 
         footer {
@@ -225,118 +294,175 @@
             text-align: center;
             padding: 1.8rem;
             font-size: 0.85rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
             border-top: 1px solid #222;
         }
     </style>
 </head>
 <body>
 
-    <!-- Compact Header -->
-    <header>
-        <img src="logo.png" alt="Arvyn Shyam Global Exports Logo" class="logo-img">
-    </header>
+    <!-- Top Sticky Bar with Logo & Hamburger Menu -->
+    <nav>
+        <div class="nav-logo">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="tagline">Rooted in India • Reaching the World</span>
+        </div>
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </nav>
 
-    <!-- Auto Image Slider -->
+    <!-- Sidebar Menu Drawer -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">✕</button>
+        <ul>
+            <li><a href="#" onclick="openModal('supportModal'); toggleSidebar();">📞 Support & Help</a></li>
+            <li><a href="#" onclick="openModal('contactModal'); toggleSidebar();">✉️ Contact Us (Inquiry)</a></li>
+            <li><a href="#collections" onclick="toggleSidebar();">🏛️ Master Collections</a></li>
+        </ul>
+    </div>
+
+    <!-- 6-Image Auto & Manual Slider -->
     <div class="slider-container">
-        <div class="slide active">
-            <img src="slide1.png" alt="Luxury Master Collection">
-            <div class="slide-caption">Exquisite Craftsmanship • Rooted in India</div>
-        </div>
-        <div class="slide">
-            <img src="slide2.png" alt="Handcrafted Masterpieces">
-            <div class="slide-caption">Timeless Artifacts for Global Interiors</div>
-        </div>
-        <div class="slide">
-            <img src="slide3.png" alt="Brass & Wood Decor">
-            <div class="slide-caption">Elegance & Heritage Redefined</div>
-        </div>
+        <div class="slide active"><img src="slide1.png" alt="Slide 1"><div class="slide-caption">Exquisite Blue Pottery & Decor</div></div>
+        <div class="slide"><img src="slide2.png" alt="Slide 2"><div class="slide-caption">Handcrafted Wooden Masterpieces</div></div>
+        <div class="slide"><img src="slide3.png" alt="Slide 3"><div class="slide-caption">Traditional Brass Artifacts</div></div>
+        <div class="slide"><img src="slide4.png" alt="Slide 4"><div class="slide-caption">Royal Textiles & Furnishings</div></div>
+        <div class="slide"><img src="slide5.png" alt="Slide 5"><div class="slide-caption">Pietra Dura Stone Inlay Work</div></div>
+        <div class="slide"><img src="slide6.png" alt="Slide 6"><div class="slide-caption">Global B2B Handicraft Collections</div></div>
     </div>
 
     <div class="container">
         <section class="about">
             <h2>The Essence of Indian Heritage</h2>
-            <p><strong>Arvyn Shyam Global Exports</strong> connects the timeless craftsmanship of Indian artisans with high-end international markets. We specialize in curating exquisite luxury decor, master-crafted brass artifacts, rich woodworks, and sustainable home textiles for discerning global B2B buyers.</p>
+            <p><strong>Arvyn Shyam Global Exports</strong> connects timeless Indian craftsmanship with global markets. We curate luxury decor, brass, woodworks, and stone artifacts for international B2B buyers.</p>
         </section>
 
-        <h2 class="section-title">Our Master Collections</h2>
+        <h2 class="section-title" id="collections">Our Master Collections</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view detailed specifications.</p>
+        
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Brass & Metal Artifacts</h3>
-                    <p>Sculpted brass showpieces, traditional figurines, and statement antique decor elements for luxury interiors.</p>
+                    <p>Click to view export specifications & finish details ▾</p>
+                    <div class="extra-details">
+                        Includes antique-finish brass figurines, heavy statues, candle stands, and statement showpieces crafted by master artisans in Uttar Pradesh. Export-grade lacquering for rust-free global transit.
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
+            
+            <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Wooden Handicrafts</h3>
-                    <p>Intricately carved utility items, heirloom-quality boxes, and fine woodwork reflecting rich heritage.</p>
+                    <p>Click to view export specifications & finish details ▾</p>
+                    <div class="extra-details">
+                        Heirloom-quality carved utility boxes, decorative trays, and solid wood furniture accents built from seasoned sheesham and mango wood. Fumigated and treated for international shipping standards.
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Stone & Marble Crafts</h3>
-                    <p>Timeless Pietra Dura inlay work, handcrafted luxury trays, and stunning architectural stone accents.</p>
+                    <p>Click to view export specifications & finish details ▾</p>
+                    <div class="extra-details">
+                        Authentic Agra Pietra Dura inlay work featuring semi-precious stones embedded in pure white marble trays, coasters, and architectural wall accents.
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Textiles & Furnishings</h3>
-                    <p>Rich hand-block printed fabrics, intricate Zari work cushion covers, and traditional luxury home linen.</p>
+                    <p>Click to view export specifications & finish details ▾</p>
+                    <div class="extra-details">
+                        Rich hand-block printed fabrics, intricate Zari work cushion covers, luxury silk runners, and traditional home linens designed for high-end boutique curators.
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Blue Pottery & Decor</h3>
-                    <p>Vibrant traditional Jaipur blue pottery and sustainable eco-friendly ceramic and clay accents.</p>
+                    <p>Click to view export specifications & finish details ▾</p>
+                    <div class="extra-details">
+                        Vibrant traditional Jaipur blue pottery, ceramic vases, and eco-friendly glazed clay accents crafted using quartz stone powder without raw clay.
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Inquiry & Lead Capture Form (Direct Email Integration via FormSubmit) -->
-        <section class="inquiry-section">
-            <h2>Global Partnerships & Inquiries</h2>
-            <p>Are you an interior designer, boutique curator, or wholesale buyer looking for authentic Indian craftsmanship?</p>
-            <div class="address-box">
-                📍 Registered Office: Tajganj, Agra, Uttar Pradesh - 282001, India
-            </div>
+    <!-- Support Modal Pop-up -->
+    <div class="modal" id="supportModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('supportModal')">✕</button>
+            <h2>Customer Support & Help</h2>
+            <p style="margin-top: 1rem;"><strong>Registered Office:</strong><br>Tajganj, Agra, Uttar Pradesh - 282001, India</p>
+            <p><strong>Phone / WhatsApp:</strong><br><a href="tel:+918279554811" style="color:var(--gold);">+91 82795-54811</a></p>
+            <p><strong>Official Email:</strong><br><a href="mailto:arvynshyamglobalexports@gmail.com" style="color:var(--gold);">arvynshyamglobalexports@gmail.com</a></p>
+        </div>
+    </div>
 
-            <!-- Form configured to send leads straight to your email -->
-            <form action="https://formsubmit.co/arvynshyamglobalexports@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New B2B Inquiry from Arvyn Shyam Global Website!">
+    <!-- Contact Us Modal Pop-up (Lead Form) -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('contactModal')">✕</button>
+            <h2>Global Partnerships & Inquiry</h2>
+            <p>Send your requirements directly to our team.</p>
+            
+            <form action="https://formsubmit.co/arvynshyamglobalexports@gmail.com" method="POST" style="margin-top: 1.5rem;">
+                <input type="hidden" name="_subject" value="New B2B Inquiry from Website!">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div class="form-group">
-                    <label for="name">Your Name / Company</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name or company name" required>
+                    <label>Your Name / Company</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter name or company" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="phone">Phone Number / WhatsApp</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number with country code" required>
+                    <label>Phone / WhatsApp</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="Enter phone with country code" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="message">Requirement / Message</label>
-                    <textarea id="message" name="message" rows="3" class="form-control" placeholder="Tell us about your requirements (Brass, Wood, Stone, etc.)"></textarea>
+                    <label>Requirement Details</label>
+                    <textarea name="message" rows="3" class="form-control" placeholder="Mention products (Brass, Wood, etc.)"></textarea>
                 </div>
-
-                <button type="submit" class="btn">Send Inquiry</button>
+                <button type="submit" class="btn">Submit Inquiry</button>
             </form>
-        </section>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Arvyn Shyam Global Exports. All Rights Reserved.</p>
-    ></footer>
+    </footer>
 
-    <!-- JavaScript for Auto Image Slider -->
+    <!-- JavaScript for Menu, Slider & Interactions -->
     <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function toggleDetails(card) {
+            const details = card.querySelector('.extra-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+            } else {
+                details.style.display = 'block';
+            }
+        }
+
+        // 6-Image Slider Script
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -345,8 +471,7 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-
-        setInterval(showNextSlide, 3500); // Changes slide every 3.5 seconds
+        setInterval(showNextSlide, 3000);
     </script>
 </body>
 </html>

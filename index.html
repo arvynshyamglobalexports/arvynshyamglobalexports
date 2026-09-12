@@ -552,13 +552,13 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
     <div class="preloader-logo-box">
         <img src="logo.png" alt="Arvyn Shyam Global Exports Logo">
     </div>
-       <script>
-    window.addEventListener('load', function() {
+    <script>
+    // यह बिना किसी लोड के सीधे 1.5 सेकंड बाद पर्दा खोल देगा
+    setTimeout(function() {
         const preloader = document.getElementById('preloader');
-        setTimeout(function() {
+        if (preloader) {
             preloader.classList.add('loaded');
-        }, 1000); // आधे सेकंड बाद पर्दा दोनों तरफ खुलना शुरू हो जाएगा
-    });
-</script>
+        }
+    }, 1500);
 </div></body>
 </html>

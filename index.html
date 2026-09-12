@@ -500,5 +500,13 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         }
         setInterval(showNextSlide, 3000);
     </script>
+    <script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.classList.add('loaded');
+        }, 500); // आधे सेकंड बाद पर्दा खुलना शुरू होगा
+    });
+</script>
 </body>
 </html>

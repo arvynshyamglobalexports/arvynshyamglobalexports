@@ -300,26 +300,30 @@
             color: #aaa;
             font-size: 0.95rem;
         }
-        .extra-details {
-            display: none;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px dashed #444;
-            color: #ddd;
-            font-size: 0.9rem;
+
+        /* --- Catalog / Grid View (Amazon / Flipkart Style) --- */
+        #catalog-view { display: none; margin-top: 2rem; }
+        .back-btn {
+            background: var(--gold); color: #000; border: none; padding: 0.6rem 1.5rem;
+            border-radius: 4px; font-weight: 600; cursor: pointer; margin-bottom: 2rem;
+            font-size: 1rem; transition: background 0.2s;
         }
-        .sub-link {
-            display: block;
-            color: var(--gold);
-            text-decoration: none;
-            padding: 6px 0;
-            border-bottom: 1px solid #222;
-            transition: padding-left 0.2s;
+        .back-btn:hover { background: #fff; }
+
+        .catalog-product-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
         }
-        .sub-link:hover {
-            padding-left: 5px;
-            color: #fff;
+        .product-item-card {
+            background: var(--card-bg); border: 1px solid #333; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s;
         }
+        .product-item-card:hover { transform: translateY(-4px); }
+        .product-item-card img {
+            width: 100%; height: 240px; object-fit: cover; border-bottom: 1px solid #333;
+        }
+        .product-info { padding: 1.5rem; text-align: left; }
+        .product-info h4 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .product-info p { color: #ccc; font-size: 0.9rem; }
 
         /* FAQ Section */
         .faq-section {
@@ -511,144 +515,189 @@
         </ul>
     </div>
 
-    <!-- 6-Image Slider -->
-    <div class="slider-container">
-        <div class="slide active"><img src="slide1.png" alt="Slide 1"><div class="slide-caption">Exquisite Blue Pottery & Decor</div></div>
-        <div class="slide"><img src="slide2.png" alt="Slide 2"><div class="slide-caption">Handcrafted Wooden Masterpieces</div></div>
-        <div class="slide"><img src="slide3.png" alt="Slide 3"><div class="slide-caption">Traditional Brass Artifacts</div></div>
-        <div class="slide"><img src="slide4.png" alt="Slide 4"><div class="slide-caption">Royal Textiles & Furnishings</div></div>
-        <div class="slide"><img src="slide5.png" alt="Slide 5"><div class="slide-caption">Pietra Dura Stone Inlay Work</div></div>
-        <div class="slide"><img src="slide6.png" alt="Slide 6"><div class="slide-caption">Global B2B Handicraft Collections</div></div>
-    </div>
-
     <div class="container">
-        <section class="about">
-            <h2>The Essence of Indian Heritage</h2>
-            <p><strong>Arvyn Shyam Global Exports</strong> connects timeless Indian craftsmanship with global markets. We curate luxury decor, brass, woodworks, and stone artifacts for international B2B buyers.</p>
-        </section>
-
-        <!-- Trust & Credibility Badges -->
-        <div class="trust-badges">
-            <div class="badge-box">
-                <h4>100% Export Quality</h4>
-                <p>Stringent quality checks and export-grade finishing for global standards.</p>
-            </div>
-            <div class="badge-box">
-                <h4>Direct Artisan Sourcing</h4>
-                <p>Authentic handicraft masterpieces sourced straight from heritage clusters in India.</p>
-            </div>
-            <div class="badge-box">
-                <h4>Secure Global Transit</h4>
-                <p>Fumigated wood packing & robust transit protection for safe delivery.</p>
-            </div>
-        </div>
-
-        <h2 class="section-title" id="collections">Our Master Collections</h2>
-        <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view products, specifications, and details.</p>
         
-        <div class="product-grid">
+        <!-- HOME LANDING VIEW -->
+        <div id="home-view">
+            <!-- 6-Image Slider -->
+            <div class="slider-container">
+                <div class="slide active"><img src="slide1.png" alt="Slide 1"><div class="slide-caption">Exquisite Blue Pottery & Decor</div></div>
+                <div class="slide"><img src="slide2.png" alt="Slide 2"><div class="slide-caption">Handcrafted Wooden Masterpieces</div></div>
+                <div class="slide"><img src="slide3.png" alt="Slide 3"><div class="slide-caption">Traditional Brass Artifacts</div></div>
+                <div class="slide"><img src="slide4.png" alt="Slide 4"><div class="slide-caption">Royal Textiles & Furnishings</div></div>
+                <div class="slide"><img src="slide5.png" alt="Slide 5"><div class="slide-caption">Pietra Dura Stone Inlay Work</div></div>
+                <div class="slide"><img src="slide6.png" alt="Slide 6"><div class="slide-caption">Global B2B Handicraft Collections</div></div>
+            </div>
+
+            <section class="about">
+                <h2>The Essence of Indian Heritage</h2>
+                <p><strong>Arvyn Shyam Global Exports</strong> connects timeless Indian craftsmanship with global markets. We curate luxury decor, brass, woodworks, and stone artifacts for international B2B buyers.</p>
+            </section>
+
+            <!-- Trust & Credibility Badges -->
+            <div class="trust-badges">
+                <div class="badge-box">
+                    <h4>100% Export Quality</h4>
+                    <p>Stringent quality checks and export-grade finishing for global standards.</p>
+                </div>
+                <div class="badge-box">
+                    <h4>Direct Artisan Sourcing</h4>
+                    <p>Authentic handicraft masterpieces sourced straight from heritage clusters in India.</p>
+                </div>
+                <div class="badge-box">
+                    <h4>Secure Global Transit</h4>
+                    <p>Fumigated wood packing & robust transit protection for safe delivery.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="collections">Our Master Collections</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view detailed specifications.</p>
             
-            <!-- Category 1: Brass & Metal Artifacts -->
-            <div class="product-card" onclick="toggleDetails(this)">
-                <div class="product-content">
-                    <h3>Brass & Metal Artifacts</h3>
-                    <p>Click to view export specifications & finish details ▾</p>
-                    <div class="extra-details">
-                        Includes antique-finish brass figurines, heavy statues, candle stands, and statement showpieces crafted by master artisans in Uttar Pradesh. Export-grade lacquering for rust-free global transit.
+            <div class="product-grid">
+                <div class="product-card" onclick="alert('Brass & Metal Artifacts catalog coming soon!')">
+                    <div class="product-content">
+                        <h3>Brass & Metal Artifacts</h3>
+                        <p>Click to view export specifications & finish details ▾</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="alert('Wooden Handicrafts catalog coming soon!')">
+                    <div class="product-content">
+                        <h3>Wooden Handicrafts</h3>
+                        <p>Click to view export specifications & finish details ▾</p>
+                    </div>
+                </div>
+
+                <!-- STONE & MARBLE (Linked to Product Catalog Grid) -->
+                <div class="product-card" onclick="showCatalog()">
+                    <div class="product-content">
+                        <h3>Stone & Marble Crafts</h3>
+                        <p>Click to view Marble Tables, Trays, Coasters & Decor ▾</p>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="alert('Textiles & Furnishings catalog coming soon!')">
+                    <div class="product-content">
+                        <h3>Textiles & Furnishings</h3>
+                        <p>Click to view export specifications & finish details ▾</p>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="alert('Blue Pottery & Decor catalog coming soon!')">
+                    <div class="product-content">
+                        <h3>Blue Pottery & Decor</h3>
+                        <p>Click to view export specifications & finish details ▾</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Export FAQ Section -->
+            <div class="faq-section" id="faq">
+                <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">What is your Minimum Order Quantity (MOQ)? <span>+</span></div>
+                    <div class="faq-answer">We cater primarily to B2B buyers, boutique owners, and wholesalers. Our MOQ varies by product category, but we offer flexible initial quantities to support new global partners.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">How do you ensure safe international shipping for fragile items? <span>+</span></div>
+                    <div class="faq-answer">All fragile items (marble, brass, pottery) undergo multi-layer bubble wrapping, thermocol padding, and custom export-grade corrugated boxes or fumigated wooden crates to guarantee damage-free transit.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">What are your accepted payment terms for global orders? <span>+</span></div>
+                    <div class="faq-answer">We accept secure international bank wire transfers (TT) and verified business payment channels as per global export norms.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">Do you provide custom branding or private labeling? <span>+</span></div>
+                    <div class="faq-answer">Yes, we offer custom packaging, private labeling, and bespoke handicraft manufacturing as per your brand specifications upon bulk order confirmation.</div>
+                </div>
+            </div>
+
+            <!-- Shipping & Logistics Partners (Clickable) -->
+            <div class="logistics-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Trusted Global Logistics & Transit</h2>
+                <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless door-to-door or port delivery worldwide.</p>
+                <div class="logistics-logos">
+                    <a href="https://www.dhl.com" target="_blank" class="logistics-badge">DHL Express ↗</a>
+                    <a href="https://www.fedex.com" target="_blank" class="logistics-badge">FedEx Global ↗</a>
+                    <a href="https://www.ups.com" target="_blank" class="logistics-badge">UPS Freight ↗</a>
+                    <a href="https://www.marinetraffic.com" target="_blank" class="logistics-badge">Air / Sea Cargo ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATALOG / PRODUCT GRID VIEW (Amazon / Flipkart Style) -->
+        <div id="catalog-view">
+            <button class="back-btn" onclick="showHome()">← Back to Master Collections</button>
+            <h2 class="section-title">Stone & Marble Master Catalog</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 2.5rem;">Export-grade handcrafted marble artifacts and inlay masterpieces.</p>
             
-            <!-- Category 2: Wooden Handicrafts -->
-            <div class="product-card" onclick="toggleDetails(this)">
-                <div class="product-content">
-                    <h3>Wooden Handicrafts</h3>
-                    <p>Click to view export specifications & finish details ▾</p>
-                    <div class="extra-details">
-                        Heirloom-quality carved utility boxes, decorative trays, and solid wood furniture accents built from seasoned sheesham and mango wood. Fumigated and treated for international shipping standards.
+            <div class="catalog-product-grid">
+                <!-- Product 1 -->
+                <div class="product-item-card">
+                    <img src="Serving_Bar/01_Natural_Onyx_Marble_Wine_Chiller.jpg" alt="Wine Chiller">
+                    <div class="product-info">
+                        <h4>Natural Onyx Marble Wine Chiller</h4>
+                        <p><strong>Category:</strong> Serving & Bar[span_4](start_span)[span_4](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Modern tabletop wine holder crafted from translucent onyx natural stone[span_5](start_span)[span_5](end_span).</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Category 3: Stone & Marble Crafts (Full Products Linked) -->
-            <div class="product-card" onclick="toggleDetails(this)">
-                <div class="product-content">
-                    <h3>Stone & Marble Crafts</h3>
-                    <p>Click to view marble tables, trays, coasters & decor ▾</p>
-                    <div class="extra-details">
-                        <a href="Serving_Bar/01_Natural_Onyx_Marble_Wine_Chiller.jpg" target="_blank" class="sub-link">▪ Natural Onyx Marble Wine Chiller[span_0](start_span)[span_0](end_span)</a>
-                        <a href="Marble_Tables/02_White_Marble_Inlay_Coffee_Table.jpg" target="_blank" class="sub-link">▪ White Marble Inlay Coffee Table[span_1](start_span)[span_1](end_span)</a>
-                        <a href="Marble_Tables/03_Black_Marble_Gothic_Dining_Table.jpg" target="_blank" class="sub-link">▪ Black Marble Gothic Dining Table[span_2](start_span)[span_2](end_span)</a>
-                        <a href="Home_D_cor/05_Rosso_Levanto_Marble_Serving_Tray.jpg" target="_blank" class="sub-link">▪ Rosso Levanto Marble Serving Tray[span_3](start_span)[span_3](end_span)</a>
-                        <a href="Coasters/10_Green_Jade_Coaster_Set.jpg" target="_blank" class="sub-link">▪ Green Jade Coaster Set[span_4](start_span)[span_4](end_span)</a>
-                        <a href="Chess_Games/12_Lapis_Lazuli_Marble_Chess_Set.jpg" target="_blank" class="sub-link">▪ Lapis Lazuli Marble Chess Set[span_5](start_span)[span_5](end_span)</a>
+                <!-- Product 2 -->
+                <div class="product-item-card">
+                    <img src="Marble_Tables/02_White_Marble_Inlay_Coffee_Table.jpg" alt="Coffee Table">
+                    <div class="product-info">
+                        <h4>White Marble Inlay Coffee Table</h4>
+                        <p><strong>Category:</strong> Marble Tables[span_6](start_span)[span_6](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Custom luxury rectangle top featuring intricate Agra Pietra Dura stone inlay[span_7](start_span)[span_7](end_span).</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Category 4: Textiles & Furnishings -->
-            <div class="product-card" onclick="toggleDetails(this)">
-                <div class="product-content">
-                    <h3>Textiles & Furnishings</h3>
-                    <p>Click to view export specifications & finish details ▾</p>
-                    <div class="extra-details">
-                        Rich hand-block printed fabrics, intricate Zari work cushion covers, luxury silk runners, and traditional home linens designed for high-end boutique curators.
+                <!-- Product 3 -->
+                <div class="product-item-card">
+                    <img src="Marble_Tables/03_Black_Marble_Gothic_Dining_Table.jpg" alt="Dining Table">
+                    <div class="product-info">
+                        <h4>Black Marble Gothic Dining Table</h4>
+                        <p><strong>Category:</strong> Marble Tables[span_8](start_span)[span_8](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Premium round top statement dining table carved in solid black marble[span_9](start_span)[span_9](end_span).</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Category 5: Blue Pottery & Decor -->
-            <div class="product-card" onclick="toggleDetails(this)">
-                <div class="product-content">
-                    <h3>Blue Pottery & Decor</h3>
-                    <p>Click to view export specifications & finish details ▾</p>
-                    <div class="extra-details">
-                        Vibrant traditional Jaipur blue pottery, ceramic vases, and eco-friendly glazed clay accents crafted using quartz stone powder without raw clay.
+                <!-- Product 4 -->
+                <div class="product-item-card">
+                    <img src="Home_D_cor/05_Rosso_Levanto_Marble_Serving_Tray.jpg" alt="Serving Tray">
+                    <div class="product-info">
+                        <h4>Rosso Levanto Marble Serving Tray</h4>
+                        <p><strong>Category:</strong> Home Décor[span_10](start_span)[span_10](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Handmade luxury serving plate with rich burgundy natural stone veins[span_11](start_span)[span_11](end_span).</p>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-item-card">
+                    <img src="Coasters/10_Green_Jade_Coaster_Set.jpg" alt="Coaster Set">
+                    <div class="product-info">
+                        <h4>Green Jade Coaster Set</h4>
+                        <p><strong>Category:</strong> Coasters[span_12](start_span)[span_12](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Hand-polished gemstone coaster set featuring protective velvet backing[span_13](start_span)[span_13](end_span).</p>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-item-card">
+                    <img src="Chess_Games/12_Lapis_Lazuli_Marble_Chess_Set.jpg" alt="Chess Set">
+                    <div class="product-info">
+                        <h4>Lapis Lazuli Marble Chess Set</h4>
+                        <p><strong>Category:</strong> Chess Games[span_14](start_span)[span_14](end_span)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Luxury handcrafted marble chess board inlaid with semi-precious lapis lazuli stone[span_15](start_span)[span_15](end_span).</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Export FAQ Section -->
-        <div class="faq-section" id="faq">
-            <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">What is your Minimum Order Quantity (MOQ)? <span>+</span></div>
-                <div class="faq-answer">We cater primarily to B2B buyers, boutique owners, and wholesalers. Our MOQ varies by product category, but we offer flexible initial quantities to support new global partners.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">How do you ensure safe international shipping for fragile items? <span>+</span></div>
-                <div class="faq-answer">All fragile items (marble, brass, pottery) undergo multi-layer bubble wrapping, thermocol padding, and custom export-grade corrugated boxes or fumigated wooden crates to guarantee damage-free transit.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">What are your accepted payment terms for global orders? <span>+</span></div>
-                <div class="faq-answer">We accept secure international bank wire transfers (TT) and verified business payment channels as per global export norms.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Do you provide custom branding or private labeling? <span>+</span></div>
-                <div class="faq-answer">Yes, we offer custom packaging, private labeling, and bespoke handicraft manufacturing as per your brand specifications upon bulk order confirmation.</div>
-            </div>
-        </div>
-
-        <!-- Shipping & Logistics Partners (Clickable) -->
-        <div class="logistics-section">
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Trusted Global Logistics & Transit</h2>
-            <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless door-to-door or port delivery worldwide.</p>
-            <div class="logistics-logos">
-                <a href="https://www.dhl.com" target="_blank" class="logistics-badge">DHL Express ↗</a>
-                <a href="https://www.fedex.com" target="_blank" class="logistics-badge">FedEx Global ↗</a>
-                <a href="https://www.ups.com" target="_blank" class="logistics-badge">UPS Freight ↗</a>
-                <a href="https://www.marinetraffic.com" target="_blank" class="logistics-badge">Air / Sea Cargo ↗</a>
-            </div>
-        </div>
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918279554811?text=Hello%20Arvyn%20Shyam%20Global%20Exports,%20I%20am%20interested%20in%20your%20handicraft%20collections." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="https://wa.me/918279554811?text=Hello%20Arvyn%20Shyam%20Global%20Exports,%20I%20am%20interested%20in%20your%20marble%20catalog." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         💬
     </a>
 
@@ -726,7 +775,7 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         </div>
     </div>
 
-    <!-- JavaScript for Interactions -->
+    <!-- JavaScript for Interactions & View Switching -->
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
@@ -748,13 +797,16 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
             }
         }
 
-        function toggleDetails(card) {
-            const details = card.querySelector('.extra-details');
-            if (details.style.display === 'block') {
-                details.style.display = 'none';
-            } else {
-                details.style.display = 'block';
-            }
+        function showCatalog() {
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('catalog-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showHome() {
+            document.getElementById('catalog-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // FAQ Toggle Function
@@ -775,9 +827,11 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         const slides = document.querySelectorAll('.slide');
 
         function showNextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+            if(slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
         }
         setInterval(showNextSlide, 3000);
 

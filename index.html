@@ -17,291 +17,113 @@
 
         /* --- Fixed Royal Theatre Curtain Preloader --- */
         #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; display: flex; justify-content: center; align-items: center;
+            overflow: hidden; pointer-events: none;
         }
-
         .curtain-left, .curtain-right {
-            position: absolute;
-            top: 0;
-            width: 50%;
-            height: 100%;
+            position: absolute; top: 0; width: 50%; height: 100%;
             background: linear-gradient(135deg, #0a1b15 0%, #050d0a 100%);
-            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
-            z-index: 2;
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 2;
         }
-
-        .curtain-left {
-            left: 0;
-            border-right: 2px solid #dfb15b;
-        }
-
-        .curtain-right {
-            right: 0;
-            border-left: 2px solid #dfb15b;
-        }
-
-        #preloader.loaded .curtain-left {
-            transform: translateX(-100%);
-        }
-        #preloader.loaded .curtain-right {
-            transform: translateX(100%);
-        }
+        .curtain-left { left: 0; border-right: 2px solid #dfb15b; }
+        .curtain-right { right: 0; border-left: 2px solid #dfb15b; }
+        #preloader.loaded .curtain-left { transform: translateX(-100%); }
+        #preloader.loaded .curtain-right { transform: translateX(100%); }
 
         .preloader-logo-box {
-            position: absolute;
-            z-index: 3;
-            text-align: center;
-            transition: opacity 0.5s ease-in-out;
+            position: absolute; z-index: 3; text-align: center; transition: opacity 0.5s ease-in-out;
         }
-
         .preloader-logo-box img {
-            width: 120px;
-            height: auto;
+            width: 120px; height: auto;
             filter: drop-shadow(0 0 15px rgba(223, 177, 91, 0.6));
             animation: pulseLogo 1.5s infinite alternate;
         }
-
-        #preloader.loaded .preloader-logo-box {
-            opacity: 0;
-        }
-
-        @keyframes pulseLogo {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
-        }
+        #preloader.loaded .preloader-logo-box { opacity: 0; }
+        @keyframes pulseLogo { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream);
-            color: var(--text-light);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif; background-color: var(--cream);
+            color: var(--text-light); line-height: 1.6;
         }
 
         /* Top Navigation Bar */
         nav {
-            background-color: var(--deep-green);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            border-bottom: 2px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: var(--deep-green); display: flex; justify-content: space-between;
+            align-items: center; padding: 1rem 2rem; border-bottom: 2px solid var(--gold);
+            position: sticky; top: 0; z-index: 1000;
         }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-img {
-            max-width: 130px;
-            height: auto;
-        }
-        .tagline {
-            color: var(--gold);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-        .menu-btn {
-            background: none;
-            border: none;
-            color: var(--gold);
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
+        .nav-logo { display: flex; align-items: center; gap: 15px; }
+        .logo-img { max-width: 130px; height: auto; }
+        .tagline { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+        .menu-btn { background: none; border: none; color: var(--gold); font-size: 1.8rem; cursor: pointer; }
         
         /* Sidebar Menu */
         .sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background: #111;
-            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
-            transition: right 0.4s ease;
-            z-index: 2000;
-            padding: 2.5rem 1.5rem;
+            position: fixed; top: 0; right: -300px; width: 300px; height: 100%;
+            background: #111; box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+            transition: right 0.4s ease; z-index: 2000; padding: 2.5rem 1.5rem;
             border-left: 1px solid var(--gold);
         }
-        .sidebar.active {
-            right: 0;
-        }
-        .close-btn {
-            background: none;
-            border: none;
-            color: var(--gold);
-            font-size: 1.5rem;
-            cursor: pointer;
-            float: right;
-            margin-bottom: 2rem;
-        }
-        .sidebar ul {
-            list-style: none;
-            margin-top: 3rem;
-        }
-        .sidebar ul li {
-            margin: 1.5rem 0;
-        }
-        .sidebar ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-family: 'Playfair Display', serif;
-            transition: color 0.3s;
-        }
-        .sidebar ul li a:hover {
-            color: var(--gold);
-        }
+        .sidebar.active { right: 0; }
+        .close-btn { background: none; border: none; color: var(--gold); font-size: 1.5rem; cursor: pointer; float: right; margin-bottom: 2rem; }
+        .sidebar ul { list-style: none; margin-top: 3rem; }
+        .sidebar ul li { margin: 1.5rem 0; }
+        .sidebar ul li a { color: var(--text-light); text-decoration: none; font-size: 1.2rem; font-family: 'Playfair Display', serif; transition: color 0.3s; }
+        .sidebar ul li a:hover { color: var(--gold); }
 
         /* Hero Slider */
         .slider-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 2rem auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            border: 1px solid #333;
-            background: #000;
+            position: relative; max-width: 1200px; margin: 2rem auto; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid #333; background: #000;
         }
-        .slide {
-            display: none;
-            position: relative;
-            text-align: center;
-        }
-        .slide.active {
-            display: block;
-        }
-        .slide img {
-            width: 100%;
-            max-height: 520px;
-            object-fit: cover;
-            display: block;
-        }
+        .slide { display: none; position: relative; text-align: center; }
+        .slide.active { display: block; }
+        .slide img { width: 100%; max-height: 520px; object-fit: cover; display: block; }
         .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.85));
-            color: var(--gold);
-            padding: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            color: var(--gold); padding: 1.5rem; font-family: 'Playfair Display', serif;
+            font-size: 1.4rem; letter-spacing: 1px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem 1.5rem;
-        }
+        .container { max-width: 1200px; margin: auto; padding: 2rem 1.5rem; }
 
         .about {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 3rem;
-            text-align: center;
+            background: var(--card-bg); padding: 2.5rem; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 3rem; text-align: center;
             border: 1px solid #333;
         }
-        .about h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .about p {
-            font-size: 1.05rem;
-            color: #ccc;
-            max-width: 800px;
-            margin: auto;
-        }
+        .about h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2rem; margin-bottom: 1rem; }
+        .about p { font-size: 1.05rem; color: #ccc; max-width: 800px; margin: auto; }
 
-        /* Trust & Credibility Badges */
         .trust-badges {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;
         }
         .badge-box {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-top: 3px solid var(--gold);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
+            background: var(--card-bg); border: 1px solid #333; border-top: 3px solid var(--gold);
+            padding: 1.5rem; border-radius: 10px; text-align: center;
         }
-        .badge-box h4 {
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        .badge-box p {
-            color: #aaa;
-            font-size: 0.85rem;
-        }
+        .badge-box h4 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .badge-box p { color: #aaa; font-size: 0.85rem; }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            color: var(--gold);
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-        }
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; color: var(--gold); font-size: 2.2rem; margin-bottom: 2.5rem; }
 
-        /* Product Grid */
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
         }
         .product-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            border-top: 4px solid var(--gold);
-            border: 1px solid #333;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            background: var(--card-bg); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); border-top: 4px solid var(--gold);
+            border: 1px solid #333; cursor: pointer; transition: transform 0.3s ease;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-content {
-            padding: 2rem;
-        }
-        .product-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-        .product-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-content { padding: 2rem; }
+        .product-card h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .product-card p { color: #aaa; font-size: 0.95rem; }
 
-        /* --- Catalog / Grid View (Amazon / Flipkart Style) --- */
+        /* --- Catalog & Filter View --- */
         #catalog-view { display: none; margin-top: 2rem; }
         .back-btn {
             background: var(--gold); color: #000; border: none; padding: 0.6rem 1.5rem;
@@ -309,6 +131,18 @@
             font-size: 1rem; transition: background 0.2s;
         }
         .back-btn:hover { background: #fff; }
+
+        .filter-buttons {
+            display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+        }
+        .filter-btn {
+            background: var(--card-bg); color: var(--gold); border: 1px solid var(--gold);
+            padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold); color: #000;
+        }
 
         .catalog-product-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
@@ -320,177 +154,55 @@
         .product-item-card:hover { transform: translateY(-4px); }
         .product-item-card img {
             width: 100%; height: 240px; object-fit: cover; border-bottom: 1px solid #333; display: block;
+            background-color: #1a1a1a;
         }
         .product-info { padding: 1.5rem; text-align: left; }
         .product-info h4 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; margin-bottom: 0.5rem; }
         .product-info p { color: #ccc; font-size: 0.9rem; }
 
         /* FAQ Section */
-        .faq-section {
-            margin-top: 4rem;
-        }
-        .faq-item {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1.2rem 1.5rem;
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 0 1.5rem 1.2rem 1.5rem;
-            color: #ccc;
-            font-size: 0.95rem;
-            display: none;
-        }
+        .faq-section { margin-top: 4rem; }
+        .faq-item { background: var(--card-bg); border: 1px solid #333; border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { padding: 1.2rem 1.5rem; font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 1.5rem 1.2rem 1.5rem; color: #ccc; font-size: 0.95rem; display: none; }
 
-        /* Shipping Partners (Clickable) */
+        /* Shipping & Logistics */
         .logistics-section {
-            text-align: center;
-            margin-top: 4rem;
-            background: #0a1b15;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--gold);
+            text-align: center; margin-top: 4rem; background: #0a1b15; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--gold);
         }
-        .logistics-logos {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
+        .logistics-logos { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
         .logistics-badge {
-            background: var(--card-bg);
-            border: 1px solid #444;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            color: var(--gold);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.3s;
+            background: var(--card-bg); border: 1px solid #444; padding: 0.8rem 1.5rem; border-radius: 6px;
+            color: var(--gold); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.3s;
         }
-        .logistics-badge:hover {
-            transform: scale(1.05);
-            border-color: var(--gold);
-        }
+        .logistics-badge:hover { transform: scale(1.05); border-color: var(--gold); }
 
-        /* Floating WhatsApp Button */
         .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            z-index: 4000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s;
+            position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #fff;
+            width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 4000; display: flex; align-items: center;
+            justify-content: center; text-decoration: none; transition: transform 0.3s;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* Modals */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 5000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 5000; justify-content: center; align-items: center; padding: 1rem;
         }
         .modal-content {
-            background: var(--card-bg);
-            border: 1px solid var(--gold);
-            border-radius: 12px;
-            padding: 2.5rem;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-            text-align: center;
+            background: var(--card-bg); border: 1px solid var(--gold); border-radius: 12px;
+            padding: 2.5rem; max-width: 500px; width: 100%; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.8); text-align: center;
         }
-        .close-modal {
-            position: absolute;
-            top: 15px; right: 20px;
-            background: none; border: none;
-            color: var(--gold); font-size: 1.5rem;
-            cursor: pointer;
-        }
-        .modal-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-        .modal-content p {
-            color: #ccc;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
+        .close-modal { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--gold); font-size: 1.5rem; cursor: pointer; }
+        .modal-content h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 1rem; }
+        .modal-content p { color: #ccc; margin-bottom: 0.8rem; font-size: 1rem; }
 
-        .form-group {
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            color: var(--gold);
-            font-size: 0.85rem;
-            margin-bottom: 0.3rem;
-        }
-        .form-control {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            background: #121212;
-            border: 1px solid #444;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 0.95rem;
-        }
-        .btn {
-            display: inline-block;
-            background: var(--gold);
-            color: #000;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-        }
+        .form-group { margin-bottom: 1rem; text-align: left; }
+        .form-group label { display: block; color: var(--gold); font-size: 0.85rem; margin-bottom: 0.3rem; }
+        .form-control { width: 100%; padding: 0.7rem 1rem; background: #121212; border: 1px solid #444; border-radius: 6px; color: #fff; font-size: 0.95rem; }
+        .btn { display: inline-block; background: var(--gold); color: #000; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; border: none; cursor: pointer; width: 100%; margin-top: 1rem; }
 
-        footer {
-            background: #050d0a;
-            color: #888;
-            text-align: center;
-            padding: 1.8rem;
-            font-size: 0.85rem;
-            margin-top: 4rem;
-            border-top: 1px solid #222;
-        }
+        footer { background: #050d0a; color: #888; text-align: center; padding: 1.8rem; font-size: 0.85rem; margin-top: 4rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -568,7 +280,7 @@
                     </div>
                 </div>
 
-                <!-- STONE & MARBLE (Click to open Catalog Grid View) -->
+                <!-- STONE & MARBLE (Click to open Catalog View) -->
                 <div class="product-card" onclick="showCatalog()">
                     <div class="product-content">
                         <h3>Stone & Marble Crafts</h3>
@@ -602,24 +314,14 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">How do you ensure safe international shipping for fragile items? <span>+</span></div>
-                    <div class="faq-answer">All fragile items (marble, brass, pottery) undergo multi-layer bubble wrapping, thermocol padding, and custom export-grade corrugated boxes or fumigated wooden crates to guarantee damage-free transit.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">What are your accepted payment terms for global orders? <span>+</span></div>
-                    <div class="faq-answer">We accept secure international bank wire transfers (TT) and verified business payment channels as per global export norms.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Do you provide custom branding or private labeling? <span>+</span></div>
-                    <div class="faq-answer">Yes, we offer custom packaging, private labeling, and bespoke handicraft manufacturing as per your brand specifications upon bulk order confirmation.</div>
+                    <div class="faq-answer">All fragile items undergo multi-layer bubble wrapping, thermocol padding, and custom export-grade wooden crates.</div>
                 </div>
             </div>
 
-            <!-- Shipping & Logistics Partners (Clickable) -->
+            <!-- Shipping & Logistics Partners -->
             <div class="logistics-section">
                 <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Trusted Global Logistics & Transit</h2>
-                <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless door-to-door or port delivery worldwide.</p>
+                <p style="color: #aaa; font-size: 0.95rem;">We partner with world-class carriers to ensure seamless delivery worldwide.</p>
                 <div class="logistics-logos">
                     <a href="https://www.dhl.com" target="_blank" class="logistics-badge">DHL Express ↗</a>
                     <a href="https://www.fedex.com" target="_blank" class="logistics-badge">FedEx Global ↗</a>
@@ -629,72 +331,25 @@
             </div>
         </div>
 
-        <!-- CATALOG / PRODUCT GRID VIEW (Amazon / Flipkart Style) -->
+        <!-- CATALOG / SUB-CATEGORY FILTER VIEW -->
         <div id="catalog-view">
             <button class="back-btn" onclick="showHome()">← Back to Master Collections</button>
             <h2 class="section-title">Stone & Marble Master Catalog</h2>
-            <p style="text-align: center; color: #888; margin-bottom: 2.5rem;">Export-grade handcrafted marble artifacts and inlay masterpieces.</p>
+            <p style="text-align: center; color: #888; margin-bottom: 2rem;">Select a sub-category below to view products and descriptions.</p>
             
-            <div class="catalog-product-grid">
-                <!-- Product 1 -->
-                <div class="product-item-card">
-                    <img src="Serving_Bar/01_Natural_Onyx_Marble_Wine_Chiller.jpg" alt="Wine Chiller">
-                    <div class="product-info">
-                        <h4>Natural Onyx Marble Wine Chiller</h4>
-                        <p><strong>Category:</strong> Serving & Bar</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Modern tabletop wine holder crafted from translucent onyx natural stone.</p>
-                    </div>
-                </div>
+            <!-- Sub-Category Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Marble Products</button>
+                <button class="filter-btn" onclick="filterProducts('table')">Marble Tables</button>
+                <button class="filter-btn" onclick="filterProducts('decor')">Home Décor & Trays</button>
+                <button class="filter-btn" onclick="filterProducts('coaster')">Coasters & Sets</button>
+                <button class="filter-btn" onclick="filterProducts('chess')">Chess Games</button>
+                <button class="filter-btn" onclick="filterProducts('bar')">Serving & Bar</button>
+            </div>
 
-                <!-- Product 2 -->
-                <div class="product-item-card">
-                    <img src="Marble_Tables/02_White_Marble_Inlay_Coffee_Table.jpg" alt="Coffee Table">
-                    <div class="product-info">
-                        <h4>White Marble Inlay Coffee Table</h4>
-                        <p><strong>Category:</strong> Marble Tables</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Custom luxury rectangle top featuring intricate Agra Pietra Dura stone inlay.</p>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-item-card">
-                    <img src="Marble_Tables/03_Black_Marble_Gothic_Dining_Table.jpg" alt="Dining Table">
-                    <div class="product-info">
-                        <h4>Black Marble Gothic Dining Table</h4>
-                        <p><strong>Category:</strong> Marble Tables</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Premium round top statement dining table carved in solid black marble.</p>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-item-card">
-                    <img src="Home_D_cor/05_Rosso_Levanto_Marble_Serving_Tray.jpg" alt="Serving Tray">
-                    <div class="product-info">
-                        <h4>Rosso Levanto Marble Serving Tray</h4>
-                        <p><strong>Category:</strong> Home Décor</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Handmade luxury serving plate with rich burgundy natural stone veins.</p>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="product-item-card">
-                    <img src="Coasters/10_Green_Jade_Coaster_Set.jpg" alt="Coaster Set">
-                    <div class="product-info">
-                        <h4>Green Jade Coaster Set</h4>
-                        <p><strong>Category:</strong> Coasters</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Hand-polished gemstone coaster set featuring protective velvet backing.</p>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-item-card">
-                    <img src="Chess_Games/12_Lapis_Lazuli_Marble_Chess_Set.jpg" alt="Chess Set">
-                    <div class="product-info">
-                        <h4>Lapis Lazuli Marble Chess Set</h4>
-                        <p><strong>Category:</strong> Chess Games</p>
-                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">Luxury handcrafted marble chess board inlaid with semi-precious lapis lazuli stone.</p>
-                    </div>
-                </div>
+            <!-- Product Grid -->
+            <div class="catalog-product-grid" id="product-container">
+                <!-- Products will be loaded dynamically via JavaScript -->
             </div>
         </div>
 
@@ -711,10 +366,7 @@
             <button class="close-modal" onclick="closeModal('supportModal')">✕</button>
             <h2>Customer Support & Help</h2>
             <p style="margin-top: 1rem;"><strong>Registered Office:</strong><br>Tajganj, Agra, Uttar Pradesh - 282001, India</p>
-            <p><strong>Phone / WhatsApp:</strong><br>
-Devanshu Bhardwaj: <a href="tel:+918279554811" style="color:var(--gold);">+91 82795-54811</a><br>
-Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-39663</a></p>
-<p><strong>Official Email:</strong><br><a href="mailto:contact@arvynshyamglobalexports.com" style="color:var(--gold);">contact@arvynshyamglobalexports.com</a></p>
+            <p><strong>Phone / WhatsApp:</strong><br>Devanshu Bhardwaj: <a href="tel:+918279554811" style="color:var(--gold);">+91 82795-54811</a></p>
         </div>
     </div>
 
@@ -723,46 +375,15 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal('contactModal')">✕</button>
             <h2>Global Partnerships & Inquiry</h2>
-            <p>Send your requirements directly to our team.</p>
-            
             <form action="https://formsubmit.co/arvynshyamglobalexports@gmail.com" method="POST" style="margin-top: 1.5rem;">
                 <input type="hidden" name="_subject" value="New B2B Inquiry from Website!">
                 <input type="hidden" name="_captcha" value="false">
-
-                <div class="form-group">
-                    <label>Your Name / Company</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter name or company" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone / WhatsApp</label>
-                    <input type="tel" name="phone" class="form-control" placeholder="Enter phone with country code" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label>Requirement Details</label>
-                    <textarea name="message" rows="3" class="form-control" placeholder="Mention products (Brass, Wood, etc.)"></textarea>
-                </div>
+                <div class="form-group"><label>Your Name / Company</label><input type="text" name="name" class="form-control" required></div>
+                <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="phone" class="form-control" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" class="form-control" required></div>
+                <div class="form-group"><label>Requirement Details</label><textarea name="message" rows="3" class="form-control"></textarea></div>
                 <button type="submit" class="btn">Submit Inquiry</button>
             </form>
-        </div>
-    </div>
-
-    <!-- About Us Video Modal -->
-    <div class="modal" id="aboutVideoModal">
-        <div class="modal-content" style="max-width: 700px;">
-            <button class="close-modal" onclick="closeModal('aboutVideoModal'); stopVideo();">✕</button>
-            <h2>The Story of Arvyn Shyam</h2>
-            <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #aaa;">Discover how we bring authentic Indian craftsmanship to the world stage.</p>
-            
-            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #444; background: #000;">
-                <video id="aboutVideo" controls width="100%" style="display: block;">
-                    <source src="about-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
         </div>
     </div>
 
@@ -774,46 +395,338 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
     <div id="preloader">
         <div class="curtain-left"></div>
         <div class="curtain-right"></div>
-        <div class="preloader-logo-box">
-            <img src="logo.png" alt="Arvyn Shyam Global Exports Logo">
-        </div>
+        <div class="preloader-logo-box"><img src="logo.png" alt="Logo"></div>
     </div>
 
-    <!-- JavaScript for Interactions & View Switching -->
+    <!-- JavaScript for Dynamic Product Rendering & Filtering -->
     <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
-
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function stopVideo() {
-            const video = document.getElementById('aboutVideo');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
+        // Product Database mapping your GitHub uploaded image filenames & details
+        const products = [
+            {
+                name: "Natural Onyx Marble Wine Chiller",
+                category: "bar",
+                categoryName: "Serving & Bar",
+                image: "01_Natural_Onyx_Marble_Wine_Chiller.jpg",
+                desc: "Modern tabletop wine holder crafted from translucent onyx natural stone for luxury hospitality."
+            },
+            {
+                name: "White Marble Inlay Coffee Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "02_White_Marble_Inlay_Coffee_Table.jpg",
+                desc: "Custom luxury rectangle top featuring intricate Agra Pietra Dura gemstone stone inlay."
+            },
+            {
+                name: "Black Marble Gothic Dining Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "03_Black_Marble_Gothic_Dining_Table.jpg",
+                desc: "Premium round top statement dining table masterfully carved in solid black marble."
+            },
+            {
+                name: "Handcrafted Black Marble Coffee Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "04_Handcrafted_Black_Marble_Coffee_Table.jpg",
+                desc: "Contemporary black marble low table designed for elite residential & hotel suites."
+            },
+            {
+                name: "Rosso Levanto Marble Serving Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "05_Rosso_Levanto_Marble_Serving_Tray.jpg",
+                desc: "Handmade luxury serving plate featuring rich burgundy natural stone veins."
+            },
+            {
+                name: "Black Marquina Marble Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "06_Black_Marquina_Marble_Tray.jpg",
+                desc: "Sleek rectangular black marble tray polished to a mirror finish for upscale decor."
+            },
+            {
+                name: "Translucent Onyx Elite Side Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "07_Translucent_Onyx_Elite_Side_Table.jpg",
+                desc: "Backlit-compatible onyx side table showcasing mesmerizing natural mineral patterns."
+            },
+            {
+                name: "Pietra Dura Tissue Box Cover",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "08_Pietra_Dura_Tissue_Box_Cover.jpg",
+                desc: "Exquisite marble tissue box inlaid with semi-precious floral stone motifs."
+            },
+            {
+                name: "Black Zebra Marble Bathroom Set",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "09_Black_Zebra_Marble_Bathroom_Set.jpg",
+                desc: "Matching luxury bathroom accessories crafted from dramatic zebra-patterned marble."
+            },
+            {
+                name: "Green Jade Coaster Set",
+                category: "coaster",
+                categoryName: "Coasters",
+                image: "10_Green_Jade_Coaster_Set.jpg",
+                desc: "Hand-polished gemstone coaster set featuring protective velvet backing."
+            },
+            {
+                name: "Calacatta Viola Candle Holders",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "11_Calacatta_Viola_Candle_Holders.jpg",
+                desc: "Striking purple-veined Italian marble candle holders for ambient lighting."
+            },
+            {
+                name: "Lapis Lazuli Marble Chess Set",
+                category: "chess",
+                categoryName: "Chess Games",
+                image: "12_Lapis_Lazuli_Marble_Chess_Set.jpg",
+                desc: "Luxury handcrafted marble chess board inlaid with semi-precious lapis lazuli stone."
+            },
+            {
+                name: "Supreme White Marble Pen Holder",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "13_Supreme_White_Marble_Pen_Holder.jpg",
+                desc: "Elegant minimalist pen stand carved from supreme-grade white marble."
+            },
+            {
+                name: "Red Marble Desk Name Sign",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "14_Red_Marble_Desk_Name_Sign.jpg",
+                desc: "Customizable executive desk plaque crafted from premium red natural marble."
+            },
+            {
+                name: "Gemstone Inlay Marble Coaster Set",
+                category: "coaster",
+                categoryName: "Coasters",
+                image: "15_Gemstone_Inlay_Marble_Coaster_Set.jpg",
+                desc: "Handcrafted marble coasters featuring intricate gemstone inlay artistry."
+            },
+            {
+                name: "White Marble Elliptical Sink",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "16_White_Marble_Elliptical_Sink.jpg",
+                desc: "Seamless carved elliptical basin designed for luxury architectural bathrooms."
+            },
+            {
+                name: "Natural Marble Tissue Box Holder",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "17_Natural_Marble_Tissue_Box_Holder.jpg",
+                desc: "Classic square tissue container built from durable polished natural marble."
+            },
+            {
+                name: "Luxury White Marble Mandir",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "18_Luxury_White_Marble_Mandir.jpg",
+                desc: "Intricately carved home temple structure crafted from pure white Makrana marble."
+            },
+            {
+                name: "Calacatta Viola Marble Side Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "19_Calacatta_Viola_Marble_Side_Table.jpg",
+                desc: "Modern designer side table featuring dramatic purple and white marble veining."
+            },
+            {
+                name: "White Marble Quatrefoil Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "20_White_Marble_Quatrefoil_Tray.jpg",
+                desc: "Decorative luxury tray shaped with classic quatrefoil geometric contours."
+            },
+            {
+                name: "Natural Marble Vanity Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "21_Natural_Marble_Vanity_Tray.jpg",
+                desc: "Elegant countertop organizer tray for perfumes, cosmetics, and jewelry."
+            },
+            {
+                name: "Marble Coffee Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "22_Marble_Coffee_Tray.jpg",
+                desc: "Sturdy and stylish coffee serving tray polished to perfection."
+            },
+            {
+                name: "Hummingbird Marble Inlay Platter",
+                category: "bar",
+                categoryName: "Serving & Bar",
+                image: "23_Hummingbird_Marble_Inlay_Platter.jpg",
+                desc: "Artistic serving platter featuring a hand-inlaid gemstone hummingbird design."
+            },
+            {
+                name: "Marble Platter with Brass Inlay Lotus",
+                category: "bar",
+                categoryName: "Serving & Bar",
+                image: "24_Marble_Platter_with_Brass_Inlay_Lotus.jpg",
+                desc: "Festive serving platter enhanced with shimmering handcrafted brass lotus inlay."
+            },
+            {
+                name: "Marble Coffee Coasters",
+                category: "coaster",
+                categoryName: "Coasters",
+                image: "25_Marble_Coffee_Coasters.jpg",
+                desc: "Minimalist round marble coasters designed to protect fine furniture surfaces."
+            },
+            {
+                name: "Marble Brass Inlay Serving Platter",
+                category: "bar",
+                categoryName: "Serving & Bar",
+                image: "26_Marble_Brass_Inlay_Serving_Platter.jpg",
+                desc: "Gourmet serving board embedded with brass metal borders and patterns."
+            },
+            {
+                name: "Marble Lyra Soap Dispenser",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "27_Marble_Lyra_Soap_Dispenser.jpg",
+                desc: "Lyra-styled luxury liquid soap pump built from heavy natural marble."
+            },
+            {
+                name: "Green Marble Napkin Holder",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "28_Green_Marble_Napkin_Holder.jpg",
+                desc: "Upright dinner napkin organizer carved from rich forest green marble."
+            },
+            {
+                name: "Calacatta Viola Oval Tray",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "29_Calacatta_Viola_Oval_Tray.jpg",
+                desc: "Oval statement tray showcasing striking artisan-grade Italian marble veins."
+            },
+            {
+                name: "Beige Marble Soap Dispenser",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "30_Beige_Marble_Soap_Dispenser.jpg",
+                desc: "Neutral beige marble pump bottle designed for elegant washroom aesthetics."
+            },
+            {
+                name: "White Marble Bathroom Set",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "31_White_Marble_Bathroom_Set.jpg",
+                desc: "Complete multi-piece luxury washroom set in pristine white marble."
+            },
+            {
+                name: "Marble Plates Set",
+                category: "bar",
+                categoryName: "Serving & Bar",
+                image: "32_Marble_Plates_Set.jpg",
+                desc: "Decorative and serving plate set crafted from certified food-safe stone."
+            },
+            {
+                name: "Calacatta Viola Marble Side Table",
+                category: "table",
+                categoryName: "Marble Tables",
+                image: "33_Calacatta_Viola_Marble_Side_Table.jpg",
+                desc: "Compact designer accent table featuring bold purple and white stone patterns."
+            },
+            {
+                name: "Marble Tic Tac Toe Game",
+                category: "chess",
+                categoryName: "Chess Games",
+                image: "34_Marble_Tic_Tac_Toe_Game.jpg",
+                desc: "Decorative tabletop strategy board game carved in contrasting natural marbles."
+            },
+            {
+                name: "Travertine Coaster Set of 6",
+                category: "coaster",
+                categoryName: "Coasters",
+                image: "35_Travertine_Coaster_Set_of_6.jpg",
+                desc: "Rustic porous travertine stone coaster set including 6 matching pieces."
+            },
+            {
+                name: "White Marble Candle Holder",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "36_White_Marble_Candle_Holder.jpg",
+                desc: "Pristine white pillar candle stand designed for romantic and luxury settings."
+            },
+            {
+                name: "Natural Onyx Coaster Set",
+                category: "coaster",
+                categoryName: "Coasters",
+                image: "37_Natural_Onyx_Coaster_Set.jpg",
+                desc: "Translucent onyx stone coasters that glow gently under direct lighting."
+            },
+            {
+                name: "Travertine XOX Tic Tac Toe",
+                category: "chess",
+                categoryName: "Chess Games",
+                image: "38_Travertine_XOX_Tic_Tac_Toe.jpg",
+                desc: "Artisan-crafted travertine board game featuring sleek polished playing pieces."
+            },
+            {
+                name: "Travertine Marble Checkers Set",
+                category: "chess",
+                categoryName: "Chess Games",
+                image: "39_Travertine_Marble_Checkers_Set.jpg",
+                desc: "Classic checkers board game set built from durable earthy travertine stone."
+            },
+            {
+                name: "Natural Marble Flower Vase",
+                category: "decor",
+                categoryName: "Home Décor",
+                image: "40_Natural_Marble_Flower_Vase.jpg",
+                desc: "Heavy monumental floral vase carved from solid waterproof natural marble."
             }
+        ];
+
+        function renderProducts(filter = 'all') {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-item-card';
+                card.innerHTML = `
+                    <img src="${p.image}" alt="${p.name}" onerror="this.src='logo.png'">
+                    <div class="product-info">
+                        <h4>${p.name}</h4>
+                        <p><strong>Category:</strong> ${p.categoryName}</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #aaa;">${p.desc}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
 
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
         function showCatalog() {
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('catalog-view').style.display = 'block';
+            renderProducts('all');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         function showHome() {
             document.getElementById('catalog-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // FAQ Toggle Function
         function toggleFaq(question) {
             const answer = question.nextElementSibling;
             const span = question.querySelector('span');
@@ -826,10 +739,8 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
             }
         }
 
-        // Slider Script
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-
         function showNextSlide() {
             if(slides.length > 0) {
                 slides[currentSlide].classList.remove('active');
@@ -839,12 +750,9 @@ Karan Rathore: <a href="tel:+918433039663" style="color:var(--gold);">+91 84330-
         }
         setInterval(showNextSlide, 3000);
 
-        // Preloader Script
         setTimeout(function() {
             const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('loaded');
-            }
+            if (preloader) preloader.classList.add('loaded');
         }, 1200);
     </script>
 </body>

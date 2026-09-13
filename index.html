@@ -308,6 +308,18 @@
             color: #ddd;
             font-size: 0.9rem;
         }
+        .sub-link {
+            display: block;
+            color: var(--gold);
+            text-decoration: none;
+            padding: 6px 0;
+            border-bottom: 1px solid #222;
+            transition: padding-left 0.2s;
+        }
+        .sub-link:hover {
+            padding-left: 5px;
+            color: #fff;
+        }
 
         /* FAQ Section */
         .faq-section {
@@ -532,9 +544,11 @@
         </div>
 
         <h2 class="section-title" id="collections">Our Master Collections</h2>
-        <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view detailed specifications.</p>
+        <p style="text-align: center; color: #888; margin-bottom: 2rem;">Click on any collection below to view products, specifications, and details.</p>
         
         <div class="product-grid">
+            
+            <!-- Category 1: Brass & Metal Artifacts -->
             <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Brass & Metal Artifacts</h3>
@@ -545,6 +559,7 @@
                 </div>
             </div>
             
+            <!-- Category 2: Wooden Handicrafts -->
             <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Wooden Handicrafts</h3>
@@ -555,16 +570,23 @@
                 </div>
             </div>
 
+            <!-- Category 3: Stone & Marble Crafts (Full Products Linked) -->
             <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Stone & Marble Crafts</h3>
-                    <p>Click to view export specifications & finish details ▾</p>
+                    <p>Click to view marble tables, trays, coasters & decor ▾</p>
                     <div class="extra-details">
-                        Authentic Agra Pietra Dura inlay work featuring semi-precious stones embedded in pure white marble trays, coasters, and architectural wall accents.
+                        <a href="Serving_Bar/01_Natural_Onyx_Marble_Wine_Chiller.jpg" target="_blank" class="sub-link">▪ Natural Onyx Marble Wine Chiller[span_0](start_span)[span_0](end_span)</a>
+                        <a href="Marble_Tables/02_White_Marble_Inlay_Coffee_Table.jpg" target="_blank" class="sub-link">▪ White Marble Inlay Coffee Table[span_1](start_span)[span_1](end_span)</a>
+                        <a href="Marble_Tables/03_Black_Marble_Gothic_Dining_Table.jpg" target="_blank" class="sub-link">▪ Black Marble Gothic Dining Table[span_2](start_span)[span_2](end_span)</a>
+                        <a href="Home_D_cor/05_Rosso_Levanto_Marble_Serving_Tray.jpg" target="_blank" class="sub-link">▪ Rosso Levanto Marble Serving Tray[span_3](start_span)[span_3](end_span)</a>
+                        <a href="Coasters/10_Green_Jade_Coaster_Set.jpg" target="_blank" class="sub-link">▪ Green Jade Coaster Set[span_4](start_span)[span_4](end_span)</a>
+                        <a href="Chess_Games/12_Lapis_Lazuli_Marble_Chess_Set.jpg" target="_blank" class="sub-link">▪ Lapis Lazuli Marble Chess Set[span_5](start_span)[span_5](end_span)</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Category 4: Textiles & Furnishings -->
             <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Textiles & Furnishings</h3>
@@ -575,6 +597,7 @@
                 </div>
             </div>
 
+            <!-- Category 5: Blue Pottery & Decor -->
             <div class="product-card" onclick="toggleDetails(this)">
                 <div class="product-content">
                     <h3>Blue Pottery & Decor</h3>
